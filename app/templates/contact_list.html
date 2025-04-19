@@ -18,6 +18,7 @@
             </thead>
             <tbody>
                 {% for contact in contacts %}
+
                 <tr class="contact-row" data-contact-id="{{ contact.id }}" ondblclick="toggleDetails(this)">
                     <td>
                         <img src="{{ contact.photo.url }}" alt="Contact`s photo" width="50">
@@ -28,11 +29,13 @@
                     <td>{{ contact.email }}</td>
                 </tr>
 <!--                ----------------------------------------- -->
-                <tr id="details-{{ contact.id }}" style="display: none;">
+                <tr class="contact-row" data-contact-id="{{ contact.id }}" ondblclick="toggleDetails(this)">
+                </tr>
+                <tr class="contact-details" id="details-{{ contact.id }}" style="display: none;">
                     <td colspan="5">
-                        <div>
-                            <a href="#">📞Call</a>
-                            <a href="#">✉️Write</a>
+                        <div class="d-flex justify-content-around">
+                            <a href="tel:{{ contact.phone_number }}" class="btn btn-success">Call</a>
+                            <a href="mailto:{{ contact.email }}" class="btn btn-primary">Write</a>
                         </div>
                     </td>
                 </tr>
@@ -59,6 +62,5 @@
         <a href="#" class="btn btn-secondary" id="editButton">Edit Contact</a>
         <a href="#" class="btn btn-danger">Delete Contact</a>
         <a href="#" class="btn btn-info">About Contact</a>
-        <a href="#" class="btn btn-success">Display</a>
     </div>
 {% endblock %}

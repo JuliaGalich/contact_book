@@ -12,14 +12,19 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Contact's Book</a>
+        <a class="navbar-brand" href="{% url 'contact_list' %}">Contact's Book</a>
+<!--        <a href="#" class="btn btn-success">Display</a>-->
     </nav>
 
     <div class="container-fluid main-container">
         {% block content %}{% endblock %}
     </div>
 
+
+
     <script src="{% static 'js/main.js' %}"></script>
+
+
 
 </body>
 </html>
